@@ -12,7 +12,9 @@
 | and give it the Closure to call when that URI is requested.
 |
 */
-
+$router->get('profile/{user_id}', 'RegistersController@index');
+$router->put('profile/update/{user_id}', 'RegistersController@update');
+$router->post('authentication/register', 'RegistersController@register');
 $router->get('kost', 'RegistersController@index');
 $router->get('kost/{kost_id}', 'KostsController@show');
 $router->post('kost/create', 'KostsController@add_kost');
@@ -23,6 +25,18 @@ $router->get('apartemen/{apartemen_id}', 'ApartemensController@show');
 $router->post('apartemen/create', 'ApartemensController@add_apartemen');
 $router->put('apartemen/update/{apartemen_id}', 'ApartemensController@update');
 $router->delete('apartemen/delete/{apartemen_id}', 'ApartemensController@delete');
+
+$router->get('lowongan', 'LowongansController@index');
+$router->get('lowongan/{lowongan_id}', 'LowongansController@show');
+$router->post('lowongan/create', 'LowongansController@add_lowongan');
+$router->put('lowongan/update/{lowongan_id}', 'LowongansController@update');
+$router->delete('lowongan/delete/{lowongan_id}', 'LowongansController@delete');
+
+$router->get('payment', 'PaymentsController@index');
+$router->get('payment/{pembayaran_id}', 'PaymentsController@show');
+$router->post('payment/create', 'PaymentsController@add_payment');
+$router->put('payment/update/{pembayaran_id}', 'PaymentsController@update');
+$router->delete('payment/delete/{pembayaran_id}', 'PaymentsController@delete');
 
 $router->get('chat/{chat_id}', 'ChatsController@show');
 $router->post('chat/create', 'ChatsController@add_chat');
