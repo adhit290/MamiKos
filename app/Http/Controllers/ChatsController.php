@@ -6,7 +6,7 @@ use App\Models\chat;
 use Illuminate\Http\Request;
 
 class chatsController extends Controller
-{s
+{
 	public function index()
 	{
 		$chats = chat::OrderBy("chat_id", "DESC")->paginate(10);
