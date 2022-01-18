@@ -12,6 +12,7 @@
 | and give it the Closure to call when that URI is requested.
 |
 */
+
 $router->get('profile/{user_id}', 'RegistersController@index');
 $router->put('profile/update/{user_id}', 'RegistersController@update');
 $router->post('authentication/register', 'RegistersController@register');
@@ -41,3 +42,9 @@ $router->delete('payment/delete/{pembayaran_id}', 'PaymentsController@delete');
 $router->get('chat/{chat_id}', 'ChatsController@show');
 $router->post('chat/create', 'ChatsController@add_chat');
 
+$router->group(['prefix' => 'auth'], function () use ($router) {
+
+    $router->post('/login', 'AuthController@login');
+});
+
+$router->post('/upload', 'UploadController@index');

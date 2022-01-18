@@ -19,6 +19,7 @@ date_default_timezone_set(env('APP_TIMEZONE', 'UTC'));
 |
 */
 
+
 $app = new Laravel\Lumen\Application(
     dirname(__DIR__)
 );
@@ -111,7 +112,18 @@ $app->register(Tymon\JWTAuth\Providers\lumenServiceProvider::class);
 $app->router->group([
     'namespace' => 'App\Http\Controllers',
 ], function ($router) {
-    require __DIR__.'/../routes/web.php';
+require __DIR__.'/../routes/web.php';
 });
+
+Cloudinary\Configuration\Configuration::instance([
+    'cloud' => [
+        'cloud_name' => env('CLOUDINARY_CLOUD_NAME', true),
+        'api_key' => env('CLOUDINARY_API_KEY', true), 
+        'api_secret' => env('CLOUDINARY_API_SECRET', true)
+    ],
+    'url' => [
+        'secure' => true
+    ]
+]);
 
 return $app;
