@@ -40,6 +40,17 @@ $app = new Laravel\Lumen\Application(
 | your own bindings here if you like or you can make another file.
 |
 */
+$app->routeMiddleware([
+     'auth' => App\Http\Middleware\Authenticate::class,
+ ]);
+$app->configure('mail');
+
+$app->alias('mail.manager', Illuminate\Mail\MailManager::class); 
+$app->alias('mail.manager', Illuminate\Contracts\Mail\Factory::class);
+
+$app->alias('mailer', Illuminate\Mail\Mailer::class); 
+$app->alias('mailer', Illuminate\Contracts\Mail\Mailer::class); 
+$app->alias('mailer', Illuminate\Contracts\Mail\MailQueue::class);
 $app->register(JD\Cloudder\CloudderServiceProvider::class);
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
