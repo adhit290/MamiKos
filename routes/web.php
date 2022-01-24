@@ -13,6 +13,7 @@
 |
 */
 
+$router->get('kirim-email','MailController@index');
 $router->get('profile/{user_id}', 'RegistersController@index');
 $router->put('profile/update/{user_id}', 'RegistersController@update');
 $router->post('authentication/register', 'RegistersController@register');
